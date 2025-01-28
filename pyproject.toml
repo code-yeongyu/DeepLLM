@@ -1,0 +1,64 @@
+[project]
+name = "deepllm"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "anyio>=4.8.0",
+    "fastapi>=0.115.7",
+    "gunicorn>=23.0.0",
+    "openai>=1.60.2",
+    "orjson>=3.10.15",
+    "pydantic>=2.10.6",
+    "pytest-anyio>=0.0.0",
+    "rich>=13.9.4",
+    "setuptools>=75.8.0",
+    "uv>=0.5.24",
+    "uvicorn>=0.34.0",
+    "uvloop>=0.21.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.14.1",
+    "pytest>=8.3.4",
+    "pytest-sugar>=1.0.0",
+    "pytest-xdist>=3.6.1",
+    "ruff>=0.9.3",
+    "fastapi-cli>=0.0.7",
+]
+
+[tool.ruff]
+line-length = 119
+target-version = "py312"
+lint.select = [
+    "PLE",
+    "PLW",
+    "E",
+    "W",
+    "F",
+    "FA",
+    "I",
+    "ISC",
+    "Q",
+    "UP",
+    "C4",
+    "PT",
+]
+preview = true
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "double"
+docstring-quotes = "double"
+multiline-quotes = "double"
+
+[tool.ruff.lint.flake8-pytest-style]
+mark-parentheses = true
+fixture-parentheses = true
+
+[tool.pytest.ini_options]
+python_files = ["tests.py", "test_*.py", "*_tests.py", "*_test.py"]
+addopts = """\
+    -n auto \
+"""
